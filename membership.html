@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join Worcester Bowls Club — membership options, fees, and application form." />
+  <title>Membership — Worcester Bowls Club</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+
+    .membership-intro {
+      max-width: 65ch;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .membership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .membership-tier {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      background: var(--white);
+      position: relative;
+      transition: box-shadow .25s ease, transform .25s ease;
+    }
+
+    .membership-tier:hover {
+      box-shadow: 0 8px 32px var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .membership-tier.featured {
+      border-color: var(--green-mid);
+      box-shadow: 0 4px 24px var(--shadow);
+    }
+
+    .membership-tier .tier-badge {
+      position: absolute;
+      top: -12px;
+      left: var(--space-xl);
+      background-color: var(--green-mid);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 50px;
+    }
+
+    .membership-tier .tier-name {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--green-dark);
+      margin-bottom: var(--space-xs);
+    }
+
+    .membership-tier .tier-price {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: var(--space-xs);
+    }
+
+    .membership-tier .tier-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-light);
+    }
+
+    .membership-tier .tier-desc {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      margin-bottom: var(--space-lg);
+    }
+
+    .membership-tier ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .membership-tier ul li {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .membership-tier ul li::before {
+      content: '✓';
+      color: var(--green-mid);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Application form section */
+    .form-section-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--green-dark);
+      border-bottom: 2px solid var(--green-pale);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .form-section-title:first-child {
+      margin-top: 0;
+    }
+
+    .application-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      max-width: 760px;
+    }
+
+    @media (max-width: 600px) {
+      .application-form { padding: var(--space-lg); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-text">
+            <span class="club-name">Worcester Bowls Club</span>
+            <span class="club-est">Est. 1867</span>
+          </div>
+        </a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="club-officers.html">Club Officers</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="newsfeed.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="club-history.html">Club History</a></li>
+          <li><a href="competition-honours.html">Honours</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="page-header">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Membership</p>
+        <h1>Join Worcester Bowls Club</h1>
+      </div>
+    </div>
+
+    <!-- Membership Tiers -->
+    <section class="section section--alt" aria-labelledby="membership-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Membership Options</span>
+          <h2 id="membership-heading">Find the Right Membership for You</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="membership-intro fade-in">
+          <p>There's a place here for everyone — whether you're a competitive bowler, someone who enjoys a social game, or simply looking for a friendly club to be part of. Fees are paid in person at the club. All new members are warmly welcomed.</p>
+        </div>
+
+        <!-- MEMBERSHIP TIER CARDS — update prices as needed -->
+        <div class="membership-grid fade-in">
+
+          <div class="membership-tier featured">
+            <div class="tier-badge">Most Popular</div>
+            <div class="tier-name">Full Playing</div>
+            <div class="tier-price">£XX <span>/ year</span></div>
+            <p class="tier-desc">For those who want to get on the green — outdoors in summer, short mat in winter.</p>
+            <ul>
+              <li>Full outdoor &amp; short mat bowling</li>
+              <li>League and competition fixtures</li>
+              <li>Access to all social events</li>
+              <li>Bar membership included</li>
+              <li>Use of coaching facilities</li>
+            </ul>
+          </div>
+
+          <div class="membership-tier">
+            <div class="tier-name">Social</div>
+            <div class="tier-price">£XX <span>/ year</span></div>
+            <p class="tier-desc">Love the atmosphere but not necessarily the bowling? Social membership is for you.</p>
+            <ul>
+              <li>Access to club bar &amp; social area</li>
+              <li>All social events and quiz nights</li>
+              <li>Non-playing participation welcome</li>
+            </ul>
+          </div>
+
+          <div class="membership-tier">
+            <div class="tier-name">Junior</div>
+            <div class="tier-price">£XX <span>/ year</span></div>
+            <p class="tier-desc">For younger players who want to learn the game in a welcoming environment.</p>
+            <ul>
+              <li>Full outdoor &amp; short mat bowling</li>
+              <li>Dedicated coaching support</li>
+              <li>Junior competition fixtures</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="notice notice-info fade-in">
+          <strong>Paying your fees:</strong> Membership fees are paid in person at the club. If you have any questions about membership before applying, please <a href="contact.html">get in touch</a>.
+        </div>
+      </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="section" aria-labelledby="application-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Apply Now</span>
+          <h2 id="application-heading">Membership Application</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <p class="fade-in" style="max-width:60ch; margin-bottom: var(--space-xl);">Complete the form below and it will be sent directly to our club secretary, who will be in touch to confirm your membership and arrange payment at the club.</p>
+
+        <!-- Netlify form — the netlify attribute enables form collection -->
+        <form
+          class="application-form fade-in"
+          name="membership-application"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/membership-success.html"
+          novalidate
+        >
+          <!-- Hidden honeypot field (spam prevention) -->
+          <input type="hidden" name="form-name" value="membership-application" />
+          <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
+
+          <h3 class="form-section-title">Personal Details</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <select id="title" name="title">
+                <option value="">Select...</option>
+                <option>Mr</option>
+                <option>Mrs</option>
+                <option>Miss</option>
+                <option>Ms</option>
+                <option>Dr</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group"><!-- spacer --></div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name <span class="required">*</span></label>
+              <input type="text" id="first-name" name="first_name" required autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="surname">Surname <span class="required">*</span></label>
+              <input type="text" id="surname" name="surname" required autocomplete="family-name" />
+            </div>
+          </div>
+
+          <h3 class="form-section-title">Contact &amp; Address</h3>
+
+          <div class="form-group">
+            <label for="address">Address <span class="required">*</span></label>
+            <input type="text" id="address" name="address" required autocomplete="street-address" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City / Town <span class="required">*</span></label>
+              <input type="text" id="city" name="city" required autocomplete="address-level2" />
+            </div>
+            <div class="form-group">
+              <label for="county">County</label>
+              <input type="text" id="county" name="county" autocomplete="address-level1" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="postcode">Postcode <span class="required">*</span></label>
+              <input type="text" id="postcode" name="postcode" required autocomplete="postal-code" />
+            </div>
+            <div class="form-group">
+              <label for="country">Country <span class="required">*</span></label>
+              <input type="text" id="country" name="country" value="England" autocomplete="country-name" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+          </div>
+
+          <h3 class="form-section-title">Membership Type</h3>
+
+          <div class="form-group">
+            <label for="membership-type">Membership Type <span class="required">*</span></label>
+            <select id="membership-type" name="membership_type" required>
+              <option value="">Please select a membership type...</option>
+              <option value="full">Full Playing Membership</option>
+              <option value="junior">Junior Membership</option>
+              <option value="social">Social Membership</option>
+            </select>
+          </div>
+
+          <h3 class="form-section-title">Declaration</h3>
+
+          <div class="form-group">
+            <label for="signature">Full Name (as signature) <span class="required">*</span></label>
+            <input type="text" id="signature" name="signature" required placeholder="Type your full name as a digital signature" />
+            <p class="form-notice">By typing your name above you confirm that the details provided are accurate and that you agree to abide by the club's rules and code of conduct.</p>
+          </div>
+
+          <div class="form-message success" id="form-success">
+            ✅ Thank you for applying! Our secretary will be in touch shortly.
+          </div>
+          <div class="form-message error" id="form-error">
+            Something went wrong. Please try again or <a href="contact.html">contact us directly</a>.
+          </div>
+
+          <div style="margin-top: var(--space-xl);">
+            <button type="submit" class="btn btn-primary">Submit Application</button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="club-name">Worcester Bowls Club</div>
+          <div class="est">Established 1867</div>
+          <p>A friendly, welcoming club for bowlers of all abilities in the heart of Worcester city.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="club-officers.html">Club Officers</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="newsfeed.html">Club News</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="club-history.html">Club History</a></li>
+            <li><a href="competition-honours.html">Competition Honours</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Find Us</div>
+          <address class="footer-address">Worcester Bowls Club<br>Wood Terrace<br>Worcester<br>WR1 1NY</address>
+          <div style="margin-top:var(--space-md);"><a href="contact.html" style="font-size:.9rem;color:rgba(255,255,255,.7);">Contact Us</a></div>
+          <div style="margin-top:var(--space-xs);"><a href="privacy-policy.html" style="font-size:.85rem;color:rgba(255,255,255,.5);">Privacy Policy</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span class="js-year"></span> Worcester Bowls Club. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

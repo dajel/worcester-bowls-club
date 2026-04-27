@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get in touch with Worcester Bowls Club — contact form, address and directions." />
+  <title>Contact Us — Worcester Bowls Club</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+
+    .contact-info-block {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .contact-item:last-child { margin-bottom: 0; }
+
+    .contact-icon {
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      width: 40px;
+      height: 40px;
+      background: var(--green-pale);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-item-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+
+    .contact-item-value {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      font-style: normal;
+    }
+
+    .map-wrapper {
+      margin-top: var(--space-lg);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .map-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 260px;
+      border: none;
+    }
+
+    .contact-form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-form-card { padding: var(--space-lg); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-text">
+            <span class="club-name">Worcester Bowls Club</span>
+            <span class="club-est">Est. 1867</span>
+          </div>
+        </a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="club-officers.html">Club Officers</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="newsfeed.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="club-history.html">Club History</a></li>
+          <li><a href="competition-honours.html">Honours</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="page-header">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Contact</p>
+        <h1>Get in Touch</h1>
+      </div>
+    </div>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Left: info + map -->
+          <div class="fade-in">
+            <div class="contact-info-block">
+              <h2 style="font-size:1.2rem; margin-bottom: var(--space-lg);">Club Information</h2>
+
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <div class="contact-item-label">Address</div>
+                  <address class="contact-item-value">
+                    Worcester Bowls Club<br>
+                    Wood Terrace<br>
+                    Worcester<br>
+                    WR1 1NY
+                  </address>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div>
+                  <div class="contact-item-label">Email</div>
+                  <!-- Replace with actual secretary email -->
+                  <div class="contact-item-value">
+                    <a href="mailto:secretary@worcesterbowlsclub.com">secretary@worcesterbowlsclub.com</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">👤</div>
+                <div>
+                  <div class="contact-item-label">Club Secretary</div>
+                  <!-- Replace with actual secretary name -->
+                  <div class="contact-item-value">[Secretary Name]</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Google Maps embed — replace with correct embed URL for Wood Terrace, Worcester -->
+            <div class="map-wrapper" style="margin-top: var(--space-lg);">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.7!2d-2.2200!3d52.1930!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWood+Terrace%2C+Worcester+WR1+1NY!5e0!3m2!1sen!2suk!4v1"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Worcester Bowls Club location map"
+              ></iframe>
+              <!-- NOTE: Replace the src above with the proper embed URL from Google Maps:
+                   1. Go to maps.google.com and search for Wood Terrace, Worcester WR1 1NY
+                   2. Click Share > Embed a map > Copy HTML
+                   3. Paste the src URL from that iframe here -->
+            </div>
+          </div>
+
+          <!-- Right: contact form -->
+          <div class="fade-in">
+            <div class="contact-form-card">
+              <h2 style="font-size:1.2rem; margin-bottom: var(--space-xs);">Send Us a Message</h2>
+              <p style="font-size:.9rem; margin-bottom: var(--space-xl);">For general enquiries, please fill in the form below. We aim to respond within a couple of days. For membership applications, please use the <a href="membership.html">membership page</a>.</p>
+
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/contact-success.html"
+                novalidate
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contact-name">Your Name <span class="required">*</span></label>
+                    <input type="text" id="contact-name" name="name" required autocomplete="name" />
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-email">Your Email <span class="required">*</span></label>
+                    <input type="email" id="contact-email" name="email" required autocomplete="email" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-subject">Subject</label>
+                  <input type="text" id="contact-subject" name="subject" placeholder="e.g. Membership enquiry, Fixture query…" />
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-message">Message <span class="required">*</span></label>
+                  <textarea id="contact-message" name="message" rows="6" required placeholder="How can we help?"></textarea>
+                </div>
+
+                <div class="form-message success" id="contact-success">
+                  ✅ Message sent! We'll be in touch soon.
+                </div>
+                <div class="form-message error" id="contact-error">
+                  Something went wrong. Please try emailing us directly.
+                </div>
+
+                <button type="submit" class="btn btn-primary">Send Message</button>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="club-name">Worcester Bowls Club</div>
+          <div class="est">Established 1867</div>
+          <p>A friendly, welcoming club for bowlers of all abilities in the heart of Worcester city.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="club-officers.html">Club Officers</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="newsfeed.html">Club News</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="club-history.html">Club History</a></li>
+            <li><a href="competition-honours.html">Competition Honours</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Find Us</div>
+          <address class="footer-address">Worcester Bowls Club<br>Wood Terrace<br>Worcester<br>WR1 1NY</address>
+          <div style="margin-top:var(--space-md);"><a href="contact.html" style="font-size:.9rem;color:rgba(255,255,255,.7);">Contact Us</a></div>
+          <div style="margin-top:var(--space-xs);"><a href="privacy-policy.html" style="font-size:.85rem;color:rgba(255,255,255,.5);">Privacy Policy</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span class="js-year"></span> Worcester Bowls Club. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

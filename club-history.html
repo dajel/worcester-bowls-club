@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Club History — Worcester Bowls Club</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+
+    .history-body {
+      max-width: 72ch;
+    }
+
+    .history-body h3 {
+      margin-top: var(--space-2xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    .history-body p {
+      max-width: none;
+    }
+
+    .history-image {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      margin-block: var(--space-xl);
+      overflow: hidden;
+    }
+
+    .history-image img {
+      width: 100%;
+    }
+
+    .history-image figcaption {
+      padding: var(--space-sm) var(--space-md);
+      font-size: .8rem;
+      color: var(--text-light);
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-text"><span class="club-name">Worcester Bowls Club</span><span class="club-est">Est. 1867</span></div>
+        </a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="club-officers.html">Club Officers</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="newsfeed.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="club-history.html">Club History</a></li>
+          <li><a href="competition-honours.html">Honours</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="page-header">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Club History</p>
+        <h1>Club History</h1>
+      </div>
+    </div>
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Est. 1867</span>
+          <h2>Over 150 Years on the Same Green</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- PASTE THE FULL CLUB HISTORY TEXT BELOW, replacing the placeholder paragraphs -->
+        <!-- Use <h3> tags for section headings within the history -->
+        <div class="history-body fade-in">
+          <div class="notice notice-warning">
+            <strong>🏗️ Content needed</strong> — Paste the full club history text here. The styling is ready; just replace these placeholder paragraphs with the real content. Break it into sections with &lt;h3&gt; headings if helpful.
+          </div>
+
+          <p>Worcester Bowls Club has occupied the same peaceful spot in the heart of Worcester city since 1867, making it one of the oldest bowling clubs in the county. [Continue the history here…]</p>
+
+          <h3>The Early Years</h3>
+          <p>[Replace with the early history of the club from the original site or from club records.]</p>
+
+          <!-- Example of how to add a historical photo: -->
+          <!--
+          <figure class="history-image">
+            <img src="assets/images/history/club-1920s.jpg" alt="Worcester Bowls Club in the 1920s" />
+            <figcaption>The club in the 1920s — photograph courtesy of the club archive.</figcaption>
+          </figure>
+          -->
+
+          <h3>Growth and Development</h3>
+          <p>[Continue history here…]</p>
+
+          <h3>The Club Today</h3>
+          <p>Today, Worcester Bowls Club continues the tradition of welcoming players of all abilities. [Complete this section.]</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="club-name">Worcester Bowls Club</div><div class="est">Established 1867</div><p>A friendly, welcoming club in the heart of Worcester city.</p></div>
+        <div><div class="footer-heading">Quick Links</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="membership.html">Membership</a></li><li><a href="newsfeed.html">Club News</a></li><li><a href="competition-honours.html">Honours</a></li></ul></div>
+        <div><div class="footer-heading">Find Us</div><address class="footer-address">Worcester Bowls Club<br>Wood Terrace<br>Worcester<br>WR1 1NY</address><div style="margin-top:var(--space-md);"><a href="contact.html" style="font-size:.9rem;color:rgba(255,255,255,.7);">Contact Us</a></div><div style="margin-top:var(--space-xs);"><a href="privacy-policy.html" style="font-size:.85rem;color:rgba(255,255,255,.5);">Privacy Policy</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; <span class="js-year"></span> Worcester Bowls Club.</span></div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

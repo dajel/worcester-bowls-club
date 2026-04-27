@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Competition Honours — Worcester Bowls Club</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+
+    .honours-intro {
+      max-width: 65ch;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .honours-year-group {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .honours-year-group h3 {
+      font-size: 1.4rem;
+      color: var(--green-dark);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .honours-year-group h3::before {
+      content: '🏆';
+      font-size: 1rem;
+    }
+
+    /* Honour row */
+    .honours-table tbody td:nth-child(2) {
+      font-style: italic;
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-text"><span class="club-name">Worcester Bowls Club</span><span class="club-est">Est. 1867</span></div>
+        </a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="club-officers.html">Club Officers</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="newsfeed.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="club-history.html">Club History</a></li>
+          <li><a href="competition-honours.html">Honours</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="page-header">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Competition Honours</p>
+        <h1>Competition Honours</h1>
+      </div>
+    </div>
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Hall of Fame</span>
+          <h2>Our Club &amp; County Champions</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="honours-intro fade-in">
+          <p>A record of Worcester Bowls Club's competition achievements — both within the club and at county level. We're proud of every player who has represented the club with distinction.</p>
+        </div>
+
+        <div class="notice notice-warning fade-in">
+          <strong>🏗️ Content needed</strong> — Replace the example rows below with actual competition data from the original site and any updates for recent seasons. Group by year or competition category as you prefer.
+        </div>
+
+        <!-- EXAMPLE STRUCTURE — duplicate .honours-year-group for each year/category -->
+        <div class="honours-year-group fade-in">
+          <h3>Club Competitions 2024</h3>
+          <div class="table-wrapper">
+            <table class="honours-table">
+              <thead>
+                <tr>
+                  <th>Competition</th>
+                  <th>Result / Stage Reached</th>
+                  <th>Player(s)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Club Singles</td>
+                  <td>Winner</td>
+                  <td>[Player name]</td>
+                </tr>
+                <tr>
+                  <td>Club Pairs</td>
+                  <td>Winner</td>
+                  <td>[Player names]</td>
+                </tr>
+                <tr>
+                  <td>Club Triples</td>
+                  <td>Winner</td>
+                  <td>[Player names]</td>
+                </tr>
+                <tr>
+                  <td>Club Fours</td>
+                  <td>Winner</td>
+                  <td>[Player names]</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="honours-year-group fade-in">
+          <h3>County Competitions 2024</h3>
+          <div class="table-wrapper">
+            <table class="honours-table">
+              <thead>
+                <tr>
+                  <th>Competition</th>
+                  <th>Result / Stage Reached</th>
+                  <th>Player(s)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>County Singles</td>
+                  <td>Semi-final</td>
+                  <td>[Player name]</td>
+                </tr>
+                <tr>
+                  <td>County Pairs</td>
+                  <td>Quarter-final</td>
+                  <td>[Player names]</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Add more year groups following the same pattern -->
+
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="club-name">Worcester Bowls Club</div><div class="est">Established 1867</div><p>A friendly, welcoming club in the heart of Worcester city.</p></div>
+        <div><div class="footer-heading">Quick Links</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="membership.html">Membership</a></li><li><a href="newsfeed.html">Club News</a></li><li><a href="club-history.html">Club History</a></li></ul></div>
+        <div><div class="footer-heading">Find Us</div><address class="footer-address">Worcester Bowls Club<br>Wood Terrace<br>Worcester<br>WR1 1NY</address><div style="margin-top:var(--space-md);"><a href="contact.html" style="font-size:.9rem;color:rgba(255,255,255,.7);">Contact Us</a></div><div style="margin-top:var(--space-xs);"><a href="privacy-policy.html" style="font-size:.85rem;color:rgba(255,255,255,.5);">Privacy Policy</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; <span class="js-year"></span> Worcester Bowls Club.</span></div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

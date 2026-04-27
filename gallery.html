@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Worcester Bowls Club</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+    .gallery-placeholder {
+      background: var(--green-pale);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-md);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: .85rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-text"><span class="club-name">Worcester Bowls Club</span><span class="club-est">Est. 1867</span></div>
+        </a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="club-officers.html">Club Officers</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="newsfeed.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="club-history.html">Club History</a></li>
+          <li><a href="competition-honours.html">Honours</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="page-header">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Gallery</p>
+        <h1>Gallery</h1>
+      </div>
+    </div>
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Photo Gallery</span>
+          <h2>Life at Worcester Bowls Club</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="notice notice-warning fade-in">
+          <strong>🏗️ Coming soon</strong> — Photos to be added. Replace the placeholder tiles below with real images from <code>assets/images/gallery/</code>.
+        </div>
+        <!-- Replace placeholders with real <img> tags inside .gallery-item divs -->
+        <div class="gallery-grid fade-in">
+          <div class="gallery-item"><div class="gallery-placeholder">Add photo here</div></div>
+          <div class="gallery-item"><div class="gallery-placeholder">Add photo here</div></div>
+          <div class="gallery-item"><div class="gallery-placeholder">Add photo here</div></div>
+          <div class="gallery-item"><div class="gallery-placeholder">Add photo here</div></div>
+          <div class="gallery-item"><div class="gallery-placeholder">Add photo here</div></div>
+          <div class="gallery-item"><div class="gallery-placeholder">Add photo here</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="club-name">Worcester Bowls Club</div><div class="est">Established 1867</div><p>A friendly, welcoming club in the heart of Worcester city.</p></div>
+        <div><div class="footer-heading">Quick Links</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="membership.html">Membership</a></li><li><a href="newsfeed.html">Club News</a></li><li><a href="club-history.html">Club History</a></li></ul></div>
+        <div><div class="footer-heading">Find Us</div><address class="footer-address">Worcester Bowls Club<br>Wood Terrace<br>Worcester<br>WR1 1NY</address><div style="margin-top:var(--space-md);"><a href="contact.html" style="font-size:.9rem;color:rgba(255,255,255,.7);">Contact Us</a></div><div style="margin-top:var(--space-xs);"><a href="privacy-policy.html" style="font-size:.85rem;color:rgba(255,255,255,.5);">Privacy Policy</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; <span class="js-year"></span> Worcester Bowls Club.</span></div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

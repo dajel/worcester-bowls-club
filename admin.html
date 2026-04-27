@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit News — Worcester Bowls Club</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+
+    body { background: var(--cream); }
+
+    /* Login wall */
+    #login-wall {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-2xl);
+    }
+
+    .login-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .login-card .lock-icon { font-size: 2.5rem; margin-bottom: var(--space-md); }
+    .login-card h2 { margin-bottom: var(--space-xs); }
+    .login-card p  { font-size: .9rem; margin-bottom: var(--space-xl); }
+
+    /* Admin panel (shown after login) */
+    #admin-panel { display: none; }
+
+    .admin-header {
+      background: var(--green-dark);
+      padding: var(--space-md) 0;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .admin-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-header span {
+      color: rgba(255,255,255,.75);
+      font-size: .875rem;
+    }
+
+    .admin-header strong { color: var(--white); }
+
+    /* Post type tabs */
+    .post-type-tabs {
+      display: flex;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
+    }
+
+    .post-type-tab {
+      flex: 1;
+      padding: var(--space-md);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      cursor: pointer;
+      text-align: center;
+      transition: all var(--transition);
+      font-family: var(--font-body);
+    }
+
+    .post-type-tab:hover { border-color: var(--green-mid); }
+
+    .post-type-tab.active {
+      border-color: var(--green-dark);
+      background: var(--green-pale);
+    }
+
+    .post-type-tab .tab-icon { font-size: 1.5rem; display: block; margin-bottom: 4px; }
+    .post-type-tab .tab-label { font-size: .875rem; font-weight: 600; color: var(--green-dark); }
+
+    /* Form panels */
+    .form-panel { display: none; }
+    .form-panel.active { display: block; }
+
+    .admin-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+    }
+
+    .form-section-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      color: var(--green-dark);
+      border-bottom: 2px solid var(--green-pale);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .form-section-title:first-child { margin-top: 0; }
+
+    @media (max-width: 600px) {
+      .post-type-tabs { flex-direction: column; }
+      .admin-form { padding: var(--space-lg); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-text"><span class="club-name">Worcester Bowls Club</span><span class="club-est">Est. 1867</span></div>
+        </a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="club-officers.html">Club Officers</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="newsfeed.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="club-history.html">Club History</a></li>
+          <li><a href="competition-honours.html">Honours</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         LOGIN WALL — shown to unauthenticated users
+         ============================================================ -->
+    <div id="login-wall">
+      <div class="login-card">
+        <div class="lock-icon">🔐</div>
+        <h2>Club Members Area</h2>
+        <p>This page is for authorised club members only. Please sign in to submit team selections and match results.</p>
+
+        <div id="login-error" class="form-message error" style="margin-bottom: var(--space-md); text-align:left;"></div>
+
+        <!-- Firebase login form — wired up in admin.js -->
+        <div class="form-group" style="text-align:left;">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="Your club email address" autocomplete="email" />
+        </div>
+        <div class="form-group" style="text-align:left;">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" />
+        </div>
+        <button class="btn btn-primary" id="login-btn" style="width:100%; justify-content:center;">Sign In</button>
+        <p style="font-size:.8rem; color:var(--text-light); margin-top:var(--space-md);">Forgotten your password? Contact the club secretary.</p>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         ADMIN PANEL — shown after successful login
+         ============================================================ -->
+    <div id="admin-panel">
+      <div class="admin-header">
+        <div class="container">
+          <div class="admin-header-inner">
+            <span>Signed in as <strong id="user-email-display"></strong></span>
+            <button class="btn btn-secondary" id="logout-btn" style="padding:.4rem 1rem; font-size:.8rem;">Sign Out</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Club Members Area</span>
+          <h2>Submit a News Post</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <p style="max-width:60ch; margin-bottom: var(--space-xl);" class="fade-in">Use the forms below to post team selections ahead of matches, or to record match results and reports. Posts appear on the <a href="newsfeed.html">public newsfeed</a> immediately.</p>
+
+        <!-- Post type selector -->
+        <div class="post-type-tabs fade-in" role="tablist">
+          <button class="post-type-tab active" data-tab="selection" role="tab" aria-selected="true">
+            <span class="tab-icon">📋</span>
+            <span class="tab-label">Team Selection</span>
+          </button>
+          <button class="post-type-tab" data-tab="result" role="tab" aria-selected="false">
+            <span class="tab-icon">🏆</span>
+            <span class="tab-label">Match Result</span>
+          </button>
+        </div>
+
+        <!-- ======================================================
+             TEAM SELECTION FORM
+             ====================================================== -->
+        <div class="form-panel active fade-in" id="panel-selection">
+          <div class="admin-form">
+
+            <h3 class="form-section-title">Match Details</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="sel-match-date">Match Date <span class="required">*</span></label>
+                <input type="date" id="sel-match-date" name="match_date" required />
+              </div>
+              <div class="form-group">
+                <label for="sel-competition">Competition / League <span class="required">*</span></label>
+                <input type="text" id="sel-competition" name="competition" placeholder="e.g. Worcester League, Friendly" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="sel-opponent">Opponent <span class="required">*</span></label>
+                <input type="text" id="sel-opponent" name="opponent" placeholder="Opposing club name" required />
+              </div>
+              <div class="form-group">
+                <label for="sel-venue">Venue</label>
+                <select id="sel-venue" name="venue">
+                  <option value="home">Home</option>
+                  <option value="away">Away</option>
+                </select>
+              </div>
+            </div>
+
+            <h3 class="form-section-title">Selected Players</h3>
+
+            <div class="form-group">
+              <label for="sel-players">Player Names <span class="required">*</span></label>
+              <textarea id="sel-players" name="players" rows="4" placeholder="List selected players, one per line or separated by commas" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="sel-additional">Additional Information</label>
+              <textarea id="sel-additional" name="additional_info" rows="3" placeholder="e.g. Arrival time, dress code, any special instructions…"></textarea>
+            </div>
+
+            <div id="sel-success" class="form-message success">✅ Team selection posted to the newsfeed!</div>
+            <div id="sel-error" class="form-message error">Something went wrong. Please try again.</div>
+
+            <div style="margin-top:var(--space-xl);">
+              <button class="btn btn-primary" id="sel-submit-btn">Post Team Selection</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ======================================================
+             MATCH RESULT FORM
+             ====================================================== -->
+        <div class="form-panel fade-in" id="panel-result">
+          <div class="admin-form">
+
+            <h3 class="form-section-title">Match Details</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-match-date">Match Date <span class="required">*</span></label>
+                <input type="date" id="res-match-date" name="match_date" required />
+              </div>
+              <div class="form-group">
+                <label for="res-competition">Competition / League <span class="required">*</span></label>
+                <input type="text" id="res-competition" name="competition" placeholder="e.g. Worcester League" required />
+              </div>
+            </div>
+
+            <h3 class="form-section-title">Score</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-home-team">Home Team <span class="required">*</span></label>
+                <input type="text" id="res-home-team" name="home_team" placeholder="e.g. Worcester" required />
+              </div>
+              <div class="form-group">
+                <label for="res-home-score">Home Score <span class="required">*</span></label>
+                <input type="text" id="res-home-score" name="home_score" placeholder="e.g. 78" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-away-team">Away Team <span class="required">*</span></label>
+                <input type="text" id="res-away-team" name="away_team" placeholder="Opponent name" required />
+              </div>
+              <div class="form-group">
+                <label for="res-away-score">Away Score <span class="required">*</span></label>
+                <input type="text" id="res-away-score" name="away_score" placeholder="e.g. 64" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="res-outcome">Outcome for Worcester <span class="required">*</span></label>
+              <select id="res-outcome" name="outcome" required>
+                <option value="">Select result…</option>
+                <option value="win">Win</option>
+                <option value="loss">Loss</option>
+                <option value="draw">Draw</option>
+              </select>
+            </div>
+
+            <h3 class="form-section-title">Match Report</h3>
+
+            <div class="form-group">
+              <label for="res-report">Match Comments / Report</label>
+              <textarea id="res-report" name="match_report" rows="5" placeholder="A brief summary of the match — highlights, standout performances, anything worth noting. This will appear on the public newsfeed."></textarea>
+              <p class="form-notice">This field is optional but encouraged — members love reading about the matches!</p>
+            </div>
+
+            <div id="res-success" class="form-message success">✅ Match result posted to the newsfeed!</div>
+            <div id="res-error" class="form-message error">Something went wrong. Please try again.</div>
+
+            <div style="margin-top:var(--space-xl);">
+              <button class="btn btn-primary" id="res-submit-btn">Post Match Result</button>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /container -->
+    </div><!-- /admin-panel -->
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="club-name">Worcester Bowls Club</div><div class="est">Established 1867</div><p>A friendly, welcoming club in the heart of Worcester city.</p></div>
+        <div><div class="footer-heading">Quick Links</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="membership.html">Membership</a></li><li><a href="newsfeed.html">Club News</a></li></ul></div>
+        <div><div class="footer-heading">Find Us</div><address class="footer-address">Worcester Bowls Club<br>Wood Terrace<br>Worcester<br>WR1 1NY</address></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; <span class="js-year"></span> Worcester Bowls Club.</span></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <!-- Firebase admin JS loaded here once Firebase is configured -->
+  <!-- <script type="module" src="assets/js/admin.js"></script> -->
+
+  <script>
+    // === TAB SWITCHING ===
+    document.querySelectorAll('.post-type-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.post-type-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+        document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected','true');
+        document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // === PLACEHOLDER LOGIN (replace with Firebase auth in admin.js) ===
+    // This just hides the login wall for UI development.
+    // DO NOT use this in production — Firebase auth replaces it entirely.
+    document.getElementById('login-btn').addEventListener('click', () => {
+      const email    = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const errorEl  = document.getElementById('login-error');
+
+      if (!email || !password) {
+        errorEl.textContent = 'Please enter your email and password.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      // TODO: Replace this block with Firebase signInWithEmailAndPassword()
+      // For now, show a placeholder message
+      errorEl.textContent = '⚠️ Firebase authentication not yet configured. See admin.js setup notes.';
+      errorEl.style.display = 'block';
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      document.getElementById('admin-panel').style.display = 'none';
+      document.getElementById('login-wall').style.display  = 'flex';
+    });
+  </script>
+
+</body>
+</html>

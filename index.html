@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Worcester Bowls Club — established 1867. A friendly, welcoming club for bowlers of all abilities in the heart of Worcester city." />
+  <title>Home — Worcester Bowls Club</title>
+
+  <!-- Favicon (replace with actual logo file) -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Inline fade-in animation style (lightweight, no extra file needed) -->
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero button row spacing */
+    .hero .btn-group { margin-top: var(--space-xl); }
+
+    /* Quick info bar below hero */
+    .info-bar {
+      background-color: var(--white);
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .info-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      padding-block: var(--space-lg);
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+
+    .info-item-icon {
+      font-size: 1.2rem;
+    }
+
+    .info-item strong {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* About section two-column */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .about-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+
+    .about-images img {
+      border-radius: var(--radius-md);
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .about-images img:first-child {
+      grid-column: span 2;
+    }
+
+    /* Features strip */
+    .feature-strip {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #164030 100%);
+    }
+
+    /* Membership CTA banner */
+    .cta-banner {
+      background-color: var(--gold);
+      padding-block: var(--space-xl);
+    }
+
+    .cta-banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+    }
+
+    .cta-banner h2 {
+      color: var(--green-dark);
+      margin-bottom: var(--space-xs);
+    }
+
+    .cta-banner p {
+      color: var(--green-dark);
+      opacity: 0.8;
+      max-width: 50ch;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-images { order: -1; }
+      .cta-banner-inner { flex-direction: column; align-items: flex-start; }
+      .info-bar-inner { flex-direction: column; gap: var(--space-sm); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER / NAV
+       ============================================================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+
+        <a href="index.html" class="nav-logo" aria-label="Worcester Bowls Club home">
+          <!-- Replace src with your actual logo -->
+          <!-- <img src="assets/images/logo.png" alt="Worcester Bowls Club crest" /> -->
+          <div class="nav-logo-text">
+            <span class="club-name">Worcester Bowls Club</span>
+            <span class="club-est">Est. 1867</span>
+          </div>
+        </a>
+
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="club-officers.html">Club Officers</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="newsfeed.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="club-history.html">Club History</a></li>
+          <li><a href="competition-honours.html">Honours</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+        </ul>
+
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" aria-label="Welcome to Worcester Bowls Club">
+      <div class="hero-bg" role="presentation"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-badge">Worcester City Centre &middot; Since 1867</span>
+          <h1>A Club for Every Bowler,<br>Every Level</h1>
+          <p class="lead">New members, playing or social, beginners or seasoned players — you are welcome here. Come and make friends in the heart of Worcester.</p>
+          <div class="btn-group">
+            <a href="membership.html" class="btn btn-primary">Join the Club</a>
+            <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         QUICK INFO BAR
+         ============================================================ -->
+    <div class="info-bar">
+      <div class="container">
+        <div class="info-bar-inner">
+          <div class="info-item">
+            <span class="info-item-icon">📍</span>
+            <div>
+              <strong>Location</strong>
+              Wood Terrace, Worcester, WR1 1NY
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-item-icon">🏆</span>
+            <div>
+              <strong>Season</strong>
+              Outdoor May–September &bull; Indoor all year
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-item-icon">🍺</span>
+            <div>
+              <strong>Facilities</strong>
+              Bar, social area, kitchen &amp; changing rooms
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-item-icon">🎳</span>
+            <div>
+              <strong>Coaching</strong>
+              Two qualified coaches on site
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         ABOUT SECTION
+         ============================================================ -->
+    <section class="section section--alt" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="fade-in">
+            <div class="section-header">
+              <span class="section-label">About the Club</span>
+              <h2 id="about-heading">A Hidden Gem in the Heart of Worcester</h2>
+              <div class="section-divider"></div>
+            </div>
+            <p>Tucked away in a quiet corner of Worcester city centre, our club has occupied the same peaceful spot since 1867. Whether you've never picked up a bowl in your life or you've been playing for decades, you'll find your place here.</p>
+            <p>Our two qualified coaches are on hand to take complete beginners from their very first roll right through to competitive play — at whatever pace suits you. And when the game's done, the bar and social area are waiting.</p>
+            <p>During the summer we run friendly fixtures across the county, plus league matches in the Worcester and Malvern leagues. Come winter, short mat bowling keeps the arms in shape, alongside poker nights, quiz evenings and other social events throughout the year.</p>
+            <div class="btn-group" style="margin-top: var(--space-xl);">
+              <a href="club-history.html" class="btn btn-outline">Our History</a>
+              <a href="membership.html" class="btn btn-primary">Become a Member</a>
+            </div>
+          </div>
+
+          <div class="about-images fade-in">
+            <!-- Replace these src attributes with your actual photos -->
+            <img src="assets/images/hero.jpg" alt="The Worcester Bowls Club green" />
+            <img src="assets/images/gallery/photo-1.jpg" alt="Club members enjoying a match" />
+            <img src="assets/images/gallery/photo-2.jpg" alt="The clubhouse and social area" />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FEATURE CARDS
+         ============================================================ -->
+    <section class="section feature-strip" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-label" style="color: var(--gold-light);">What We Offer</span>
+          <h2 id="features-heading" style="color: var(--white);">Everything You Need to Enjoy Bowls</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="grid-3">
+
+          <div class="card fade-in">
+            <div class="card-body">
+              <div class="card-icon">🌿</div>
+              <h3>Outdoor Bowling</h3>
+              <p>Compete in friendly matches, Worcester and Malvern league fixtures, and club competitions through the summer season.</p>
+            </div>
+          </div>
+
+          <div class="card fade-in">
+            <div class="card-body">
+              <div class="card-icon">🎳</div>
+              <h3>Short Mat (Winter)</h3>
+              <p>Keep your game sharp through the winter months with indoor short mat bowling — open to all members.</p>
+            </div>
+          </div>
+
+          <div class="card fade-in">
+            <div class="card-body">
+              <div class="card-icon">🎓</div>
+              <h3>Expert Coaching</h3>
+              <p>Two qualified coaches ready to help beginners and those looking to improve. No experience necessary.</p>
+            </div>
+          </div>
+
+          <div class="card fade-in">
+            <div class="card-body">
+              <div class="card-icon">🍺</div>
+              <h3>Bar &amp; Social Area</h3>
+              <p>A fully licensed bar and large social space to relax in after play. Some of the best conversations happen here.</p>
+            </div>
+          </div>
+
+          <div class="card fade-in">
+            <div class="card-body">
+              <div class="card-icon">🎲</div>
+              <h3>Social Events</h3>
+              <p>Quiz nights, poker evenings, and club socials throughout the year. You don't have to bowl to belong here.</p>
+            </div>
+          </div>
+
+          <div class="card fade-in">
+            <div class="card-body">
+              <div class="card-icon">♿</div>
+              <h3>Accessible Facilities</h3>
+              <p>Changing rooms, kitchen, and disabled toilet facilities. We want everyone to feel welcome and comfortable.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MEMBERSHIP CTA
+         ============================================================ -->
+    <div class="cta-banner" aria-label="Join Worcester Bowls Club">
+      <div class="container">
+        <div class="cta-banner-inner">
+          <div>
+            <h2>Ready to Give It a Go?</h2>
+            <p>Full playing, social, and junior memberships available. Come down and see what we're all about — new members are always welcome.</p>
+          </div>
+          <a href="membership.html" class="btn btn-primary" style="background-color: var(--green-dark); border-color: var(--green-dark); color: var(--white); flex-shrink: 0;">
+            View Membership Options
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="club-name">Worcester Bowls Club</div>
+          <div class="est">Established 1867</div>
+          <p>A friendly, welcoming club for bowlers of all abilities in the heart of Worcester city.</p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="club-officers.html">Club Officers</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="newsfeed.html">Club News</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="club-history.html">Club History</a></li>
+            <li><a href="competition-honours.html">Competition Honours</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Find Us</div>
+          <address class="footer-address">
+            Worcester Bowls Club<br>
+            Wood Terrace<br>
+            Worcester<br>
+            WR1 1NY
+          </address>
+          <div style="margin-top: var(--space-md);">
+            <a href="contact.html" class="footer-links" style="color: rgba(255,255,255,0.7);">Contact Us</a>
+          </div>
+          <div style="margin-top: var(--space-xs);">
+            <a href="privacy-policy.html" style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">Privacy Policy</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span class="js-year"></span> Worcester Bowls Club. All rights reserved.</span>
+        <span>Built with care for a great club.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
